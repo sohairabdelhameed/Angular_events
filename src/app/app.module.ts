@@ -1,26 +1,53 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import {RouterModule} from '@angular/router'
+import{
+  EventListComponent,
+  EventThumbnailComponent,
+  EventDetailsComponent,
+  CreateEventComponent,
+  EventService,
+  EventRouterActivator,
+  EventListResolver
+} from './events/index'
 
 import { EventsAppComponent } from './events-app.component';
-import { EventListComponent } from './events/events-list.components';
-import { EventThumbnailComponent } from './events/events-thumbnail.components';
 import { NavBarComponent } from './nav/navbar.components';
-import { EventService } from './events/shared/events.service';
 //import { ToastrService } from './common/toaster.service';
+import { appRoutes } from './route';
+import { Error404Component } from './Errors/404.components';
+import { AuthService } from './user/auth.service';
 
 @NgModule({
   imports: [
-    BrowserModule
+    BrowserModule,
+    RouterModule.forRoot(appRoutes),
+
   ],
   declarations: [
     EventsAppComponent,
     EventListComponent,
     EventThumbnailComponent,
+    EventDetailsComponent,
     NavBarComponent,
+    CreateEventComponent,
+    Error404Component,
+  
   
   ],
  
-  providers: [EventService],
+  providers: [
+    EventService,
+    EventRouterActivator,
+    EventListResolver,
+    {provide:'canDeactivateCreatedEvent',useValue:checkBadState},
+  AuthService 
+  ],
   bootstrap: [EventsAppComponent]
 })
 export class AppModule { }
+export function checkBadState(component:CreateEventComponent){
+  if (component.isBad)
+  return window.confirm('You have not saved this event,Do you really want to cancel?')
+return true
+}
