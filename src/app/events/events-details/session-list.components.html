@@ -1,0 +1,18 @@
+<div class="row" *ngFor="let session of sessions">
+    <div class="col-md-10">
+      <div class="card mb-3">
+        <div class="card-header" style="background-color: #485563;">
+          <h4 class="card-title text-light">{{ session.name }}</h4>
+          <h6 class="card-subtitle text-light">{{ session.presenter }}</h6>
+        </div>
+        <div class="card-body" style="background-color: #596276;">
+          <p class="card-text">
+            <span style="color: #F97924">Duration: {{ session.duration }}</span><br />
+            <span style="color: #F97924 ">Level: {{ session.level }}</span>
+          </p>
+          <p class="card-text text-light">{{ session.abstract }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  
