@@ -1,24 +1,31 @@
 import {Component} from '@angular/core'
 import{Router} from '@angular/router'
+import { EventService } from './shared/index'
 @Component({
-    template:`
-    <h1>New Element</h1>
-    <div class="col-md-6">
-        <h3>[Create Event form will go here] </h3>
-        <br/>
-        <br/>
-        <button type="submit" class="btn btn-primary"> Save  </button>
-        <span style="margin: 0 5px;"></span> <!-- Add some spacing between the buttons -->
-        <button type="button" class="btn btn-secondary"
-        (click)="cancel()">Cancel</button>
-    </div>
-    
-    `
+    templateUrl:'./create-event.component.html',
+    styles:[
+        `
+        em{float:right; color:#E05C65; padding-left:10px}
+        .error input{background-color:#E3C3C5;}
+        .error ::-webkit-input-placeholder{color:#999;}
+        .error ::-moz-placeholder{color:#999;}
+        .error :-moz-placeholder{color:#999;}
+        .error :-ms-input-placeholder{color:#999;}
+        `
+      ]
 })
      export class CreateEventComponent{
+        newEvent
+        
         isBad:boolean=true
-        constructor(private router:Router){
+        constructor(private router:Router ,private eventService:EventService){
 
+        }
+       
+        saveEvent(formValues){
+            this.eventService.saveEvent(formValues)
+            this.isBad = false
+            this.router.navigate(['/events'])
         }
         cancel(){
            this.router.navigate(['/events'])

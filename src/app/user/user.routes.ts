@@ -3,6 +3,7 @@ import { ProfileComponent } from "./profile.components";
 
 export const userRoutes=[
     {path:'profile',component:ProfileComponent},
-    {path:'login',component:LoginComponents}
+    {path:'login',component:LoginComponents},
+   
 
 ]

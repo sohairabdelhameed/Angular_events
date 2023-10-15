@@ -12,6 +12,7 @@ import { LoginComponents } from './login.components'
         FormsModule,
         ReactiveFormsModule,
         RouterModule.forChild(userRoutes),
+        
        
 
     ],
@@ -21,6 +22,7 @@ import { LoginComponents } from './login.components'
 
     ],
     providers:[
+         
 
     ]
 })
