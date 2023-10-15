@@ -1,18 +1,31 @@
+<!-- Add this line to include Font Awesome CSS from a CDN -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
 <div class="row" *ngFor="let session of sessions">
     <div class="col-md-10">
-      <div class="card mb-3">
-        <div class="card-header" style="background-color: #485563;">
-          <h4 class="card-title text-light">{{ session.name }}</h4>
-          <h6 class="card-subtitle text-light">{{ session.presenter }}</h6>
+     <collapsible-well>
+       <div class="title">
+        {{session.name}}
+        <i *ngIf="session.voters.length > 0" class="fas fa-fire" style="color: crimson;"></i>
+
+       </div>
+       <div class="body">
+       <div class="card mb-3">
+            <div class="card-header" style="background-color: #485563;">
+              
+                <h6 class="card-subtitle text-light">{{ session.presenter }}</h6>
+            </div>
+            <div class="card-div">
+              <p class="card-text">
+                <span class="text-muted">Duration: {{ session.duration }}</span><br />
+                <span class="text-muted">Level: {{ session.level }}</span>
+              </p>
+              <p class="card-text">{{ session.abstract }}</p>
+            </div>
+          </div>
+       </div>
+       
+         </collapsible-well>
         </div>
-        <div class="card-body" style="background-color: #596276;">
-          <p class="card-text">
-            <span style="color: #F97924">Duration: {{ session.duration }}</span><br />
-            <span style="color: #F97924 ">Level: {{ session.level }}</span>
-          </p>
-          <p class="card-text text-light">{{ session.abstract }}</p>
-        </div>
-      </div>
     </div>
-  </div>
   
