@@ -24,7 +24,7 @@ private lastName:FormControl
 
   ngOnInit() {
     // Initialize FormControl instances with initial values
-    this.firstName = new FormControl(this.authService.currentUser.firstName ,[Validators.required,Validators.pattern('a-zA-Z.*]')] );
+    this.firstName = new FormControl(this.authService.currentUser.firstName ,[Validators.required,Validators.pattern(/^[a-zA-Z]*$/)] );
      this.lastName = new FormControl(this.authService.currentUser.lastName, Validators.required);
 
     this.profileForm = new FormGroup({

@@ -17,7 +17,7 @@
             </div>
             <div class="card-div">
               <p class="card-text">
-                <span class="text-muted">Duration: {{ session.duration }}</span><br />
+                <span class="text-muted">Duration: {{ session.duration | duration}}</span><br />
                 <span class="text-muted">Level: {{ session.level }}</span>
               </p>
               <p class="card-text">{{ session.abstract }}</p>
