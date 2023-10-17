@@ -35,15 +35,15 @@
         <span class="d-flex align-items-center">
           <i class="fas fa-sort mr-1" style="color: #e0dad7;"></i> Sort by:
         </span>
-        <button class="btn button-transparent" [class.active]="sortBy === 'name'" (click)="sortBy='name'">Name</button>
-        <button class="btn button-transparent" [class.active]="sortBy === 'votes'" (click)="sortBy='votes'">Votes</button>
+        <button class="btn btn-secondary m-1" [class.active]="sortBy === 'name'" (click)="sortBy='name'">Name</button>
+        <button class="btn btn-secondary m-1" [class.active]="sortBy === 'votes'" (click)="sortBy='votes'">Votes</button>
         <span class="d-flex align-items-center">
           <i class="fas fa-filter mx-1" style="color: #e0dad7;"></i> Filter by:
         </span>
-        <button class="btn button-transparent" [class.active]="filterBy === 'all'" (click)="filterBy='all'">All</button>
-        <button class="btn button-transparent" [class.active]="filterBy === 'beginner'" (click)="filterBy='beginner'">Beginner</button>
-        <button class="btn button-transparent" [class.active]="filterBy === 'intermediate'" (click)="filterBy='intermediate'">Intermediate</button>
-        <button class="btn button-transparent" [class.active]="filterBy === 'advanced'" (click)="filterBy='advanced'">Advanced</button>
+        <button class="btn btn-secondary m-1" [class.active]="filterBy === 'all'" (click)="filterBy='all'">All</button>
+        <button class="btn btn-secondary m-1" [class.active]="filterBy === 'beginner'" (click)="filterBy='beginner'">Beginner</button>
+        <button class="btn btn-secondary m-1" [class.active]="filterBy === 'intermediate'" (click)="filterBy='intermediate'">Intermediate</button>
+        <button class="btn btn-secondary m-1" [class.active]="filterBy === 'advanced'" (click)="filterBy='advanced'">Advanced</button>
       </div>
     </div>
     <div class="col-md-2">
