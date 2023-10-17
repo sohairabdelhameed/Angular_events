@@ -8,12 +8,17 @@ import { IEvent, ISession } from "../shared/index";
     .container {padding-left:20px; padding-right:20px;}
     .event-image {height:100px;}
     a{cursor:pointer}
-    `]
+    .btn.button-transparent{color: #f58a43;  }
+   
+    `
+    ]
 
 })
 export class EventDetailsComponent{
     event:IEvent
     addMode:boolean
+    filterBy:string ='all';
+    sortBy: string='votes'
 constructor(private eventService:EventService,
     private route:ActivatedRoute){
 
