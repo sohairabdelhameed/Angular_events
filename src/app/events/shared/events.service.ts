@@ -53,6 +53,15 @@ export class EventService{
     
     return emitter;
     }
+    getSessionById(eventId: number, sessionId: number): ISession | undefined {
+      const event = this.getEvent(eventId);
+      if (event) {
+        return event.sessions.find((session) => session.id === sessionId);
+      }
+      return undefined; // Session not found
+    }
+    
+    
    
 }
 

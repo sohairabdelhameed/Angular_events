@@ -26,6 +26,7 @@ constructor(private eventService:EventService,
     ngOnInit(){
         this.event = this.eventService.getEvent
         (+this.route.snapshot.params['id']);
+        
 
 }
 addsession(){

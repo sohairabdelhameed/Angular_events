@@ -5,10 +5,12 @@ import{
     CreateEventComponent,
     EventRouterActivator,
     EventListResolver,
-    CreateSessionComponent
+    CreateSessionComponent,
+    SessionListComponent
   } from './events/index'
  
 import { Error404Component } from "./Errors/404.components";
+import{SearchResultsComponent} from './common/index'
 
 export const appRoutes: Routes =[
 {path:'events/new',component:CreateEventComponent,
@@ -20,7 +22,10 @@ canActivate:[EventRouterActivator]},
 {path:'404',component:Error404Component},
 {path:'',redirectTo:'/events',pathMatch:'full'},
 {path:'events/session/new', component: CreateSessionComponent},
+{ path: 'search-results', component: SearchResultsComponent},
+{ path: 'event/:id', component: EventDetailsComponent },
 {
     path:'user',
-    loadChildren:() => import('./user/user.module').then(m=>m.UserModel)}
+    loadChildren:() => import('./user/user.module').then(m=>m.UserModel)},
+
 ]

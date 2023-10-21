@@ -20,6 +20,8 @@
     "@angular/platform-browser": "11.2.4",
     "@angular/platform-browser-dynamic": "11.2.4",
     "@angular/router": "11.2.4",
+    "@material/dialog": "^14.0.0",
+    "@ng-bootstrap/ng-bootstrap": "^15.1.1",
     "@popperjs/core": "^2.11.8",
     "bootstrap": "^5.3.2",
     "jquery": "^3.4.1",

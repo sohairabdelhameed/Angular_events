@@ -17,7 +17,7 @@ import{
 
 import { EventsAppComponent } from './events-app.component';
 import { NavBarComponent } from './nav/navbar.components';
-import{JQ_Token,CollapsibleWellComponent,SimpleModelComponent,ModalTriggerDirective} from './common/index'
+import{JQ_Token,CollapsibleWellComponent,SimpleModelComponent,ModalTriggerDirective,SearchResultsComponent} from './common/index'
 import { appRoutes } from './route';
 import { Error404Component } from './Errors/404.components';
 import { AuthService } from './user/auth.service';
@@ -30,6 +30,7 @@ import { AuthService } from './user/auth.service';
     FormsModule,
     ReactiveFormsModule,
     RouterModule.forRoot(appRoutes),
+ 
 
   ],
   declarations: [
@@ -45,7 +46,9 @@ import { AuthService } from './user/auth.service';
     CollapsibleWellComponent,
     DurationPipe,
     SimpleModelComponent,
-    ModalTriggerDirective
+    ModalTriggerDirective,
+    SearchResultsComponent
+
   
   ],
  

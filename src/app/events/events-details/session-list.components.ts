@@ -1,4 +1,4 @@
-import { Component, Input , OnChanges, SimpleChanges} from "@angular/core";
+import { Component, Input , OnChanges, SimpleChanges,ElementRef, ViewChild , AfterViewInit} from "@angular/core";
 import { ISession } from "../shared/index";
 @Component({
     selector:'session-list',
@@ -6,11 +6,14 @@ import { ISession } from "../shared/index";
   
 })
 
-export class SessionListComponent implements OnChanges{
+export class SessionListComponent implements OnChanges, AfterViewInit {
 @Input() sessions:ISession[];
 @Input() filterBy:string;
 @Input() sortBy:string;
 VisibleSessions: ISession[] = [];
+
+@ViewChild('selectedSession') selectedSessionElement: ElementRef; // Add this property
+
 
 
 ngOnChanges() {
@@ -32,7 +35,14 @@ filterSessions(filter){
 
     }
 }
-
+scrollToSelectedSession() {
+    if (this.selectedSessionElement && this.selectedSessionElement.nativeElement) {
+      this.selectedSessionElement.nativeElement.scrollIntoView({ behavior: "smooth" });
+    }
+  }
+  ngAfterViewInit() {
+    this.scrollToSelectedSession();
+  }
 
 }
 function sortByName(s1:ISession,s2:ISession){
