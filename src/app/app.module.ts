@@ -12,7 +12,9 @@ import{
   EventListResolver,
   CreateSessionComponent,
   SessionListComponent,
-  DurationPipe
+  DurationPipe,
+  UpVoteComponent,
+  VoterService
 } from './events/index'
 
 import { EventsAppComponent } from './events-app.component';
@@ -47,7 +49,8 @@ import { AuthService } from './user/auth.service';
     DurationPipe,
     SimpleModelComponent,
     ModalTriggerDirective,
-    SearchResultsComponent
+    SearchResultsComponent,
+    UpVoteComponent,
 
   
   ],
@@ -59,7 +62,8 @@ import { AuthService } from './user/auth.service';
     {provide:'canDeactivateCreatedEvent',useValue:checkBadState},
   AuthService,
  // {provide: Toaster_Token , useValue:toastr },
- {provide: JQ_Token, useValue:jQuery }
+ {provide: JQ_Token, useValue:jQuery },
+ VoterService
  
   ],
   bootstrap: [EventsAppComponent]

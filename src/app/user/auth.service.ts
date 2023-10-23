@@ -20,4 +20,5 @@ export class AuthService{
 this.currentUser.firstName=firstName
 this.currentUser.lastName=lastName
     }
+    
 }

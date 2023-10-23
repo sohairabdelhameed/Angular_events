@@ -89,7 +89,9 @@
             "styles": [
               "node_modules/toaster/build/toaster.min.css",
               "node_modules/ngf-bootstrap/dist/bootstrap.min.css",
-              "src/styles.css"
+              "src/styles.css",
+              "node_modules/font-awesome/css/font-awesome.min.css"
+        
               
             ],
             "scripts": [
