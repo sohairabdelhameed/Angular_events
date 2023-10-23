@@ -14,7 +14,8 @@ import{
   SessionListComponent,
   DurationPipe,
   UpVoteComponent,
-  VoterService
+  VoterService,
+  LocationValidator
 } from './events/index'
 
 import { EventsAppComponent } from './events-app.component';
@@ -51,6 +52,7 @@ import { AuthService } from './user/auth.service';
     ModalTriggerDirective,
     SearchResultsComponent,
     UpVoteComponent,
+    LocationValidator,
 
   
   ],
