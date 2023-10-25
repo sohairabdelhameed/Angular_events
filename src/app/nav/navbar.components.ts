@@ -1,8 +1,11 @@
-import {Component} from '@angular/core'
+import {Component , AfterViewInit} from '@angular/core'
 import { AuthService } from '../user/auth.service'
-import { ISession } from '../events/shared/event.model';
+import { IEvent, ISession } from '../events/shared/event.model';
 import { EventService } from '../events';
 import { Router } from '@angular/router';
+
+
+
 
 
 @Component({
@@ -17,9 +20,10 @@ import { Router } from '@angular/router';
         `
     ]
 })
-export class NavBarComponent{
+export class NavBarComponent {
     searchTerm : string="";
     foundSession:ISession[];
+    events:IEvent;
 constructor(public auth:AuthService  ,private eventService: EventService, private router : Router){
 
 }

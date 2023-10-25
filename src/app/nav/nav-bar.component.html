@@ -4,8 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ngEvents</title>
-    <!-- Add Bootstrap CSS and JavaScript links here -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    
 </head>
 <body>
 
@@ -24,12 +27,16 @@
         <li class="nav-item">
           <a [routerLink] ="['/events/new']" routerLinkActive="active"  class="nav-link" >Create Event</a>
         </li>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown">
-            Events
-          </a>
-          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <a class="dropdown-item" href="#">Angular Connect</a>
+        <li class="nav-item" ngbDropdown>
+          <div class="dropdown" ngbDropdown>
+            <a class="nav-link" id="navbarDropdown" role="button" ngbDropdownToggle>
+              Events
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <a *ngFor="let event of events" class="dropdown-item" [routerLink]="['/events', event.id]">
+                {{ event.name }}
+              </a>
+            </div>
           </div>
         </li>
       </ul>
@@ -42,10 +49,10 @@
         </li>
       </ul>
     <span style="margin: 0 20px;"></span>
-      <form id = "searchForm" (ngSubmit)="searchSession(searchTerm)" class="form-inline my-2 my-lg-0">
-        <input [(ngModel)]="searchTerm" name="searchTerm" class="form-control" type="text" placeholder="Search Sessions">
-        <button class="btn btn-default my-2 my-sm-0">Search</button>
-      </form>
+    <form id="searchForm" (ngSubmit)="searchSession(searchTerm)" class="form-inline my-2 my-lg-0">
+      <input [(ngModel)]="searchTerm" name="searchTerm" class="form-control" type="text" placeholder="Search Sessions">
+      <button class="btn btn-default my-2 my-sm-0" type="submit">Search</button>
+    </form>
   
     </div>
     </div>
@@ -55,11 +62,5 @@
 <a class="list-group-item" *ngFor="let session of foundSession" [routerLink]="['/events',session.eventId]">{{session.name}}</a>
   </div>
 </simple-modal>
-
-<!-- Add Bootstrap JS and jQuery links here -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-
-
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>

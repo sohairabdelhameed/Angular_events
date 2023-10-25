@@ -1,6 +1,7 @@
 import {Component} from '@angular/core'
 import { AuthService } from './auth.service';
 import {Router} from '@angular/router'
+import { Observable } from "rxjs";
 @Component({
 templateUrl:'./login.components.html',
 styles:[
@@ -14,13 +15,24 @@ export class LoginComponents{
     userName
     password
     mouseoverLogin
+    loginInvalid = false
     constructor(private authservice:AuthService , private router:Router){
 
     }
     login(formValue) {
     this.authservice.loginUser(formValue.userName,
-        formValue.password)
-        this.router.navigate(['events'])
+        formValue.password).subscribe(rep=>{
+            if(!rep){
+                this.loginInvalid = true;
+
+            }
+         else{
+            this.router.navigate(['events'])
+    }}
+    
+    )
+
+        
     }
     cancel(){
         this.router.navigate(['events'])

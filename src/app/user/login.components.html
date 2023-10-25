@@ -21,4 +21,6 @@
     <span style="margin: 0 5px;"></span> <!-- Add some spacing between the buttons -->
     <button type="button"  (click)="cancel()" class="btn btn-secondary">Cancel</button>
   </form>
+  <br>
+  <div *ngIf="loginInvalid" class="alert alert-danger">Invalid Login Info</div>
 </div>
