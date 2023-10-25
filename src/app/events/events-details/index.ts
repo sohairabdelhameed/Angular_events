@@ -1,5 +1,4 @@
 export * from './event-details.components'
-export * from './event-route-activator.service'
 export * from './create-session.component'
 export * from './session-list.components'
 export * from './upvote.component'

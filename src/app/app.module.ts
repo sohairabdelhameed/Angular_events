@@ -2,13 +2,15 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import {RouterModule} from '@angular/router'
 import {FormsModule ,ReactiveFormsModule} from '@angular/forms'
+import{ HttpClientModule} from '@angular/common/http'
+import * as $ from 'jquery'
 import{
   EventListComponent,
   EventThumbnailComponent,
   EventDetailsComponent,
   CreateEventComponent,
   EventService,
-  EventRouterActivator,
+  EventResolver,
   EventListResolver,
   CreateSessionComponent,
   SessionListComponent,
@@ -33,6 +35,7 @@ import { AuthService } from './user/auth.service';
     FormsModule,
     ReactiveFormsModule,
     RouterModule.forRoot(appRoutes),
+    HttpClientModule
  
 
   ],
@@ -59,7 +62,7 @@ import { AuthService } from './user/auth.service';
  
   providers: [
     EventService,
-    EventRouterActivator,
+    EventResolver,
     EventListResolver,
     {provide:'canDeactivateCreatedEvent',useValue:checkBadState},
   AuthService,

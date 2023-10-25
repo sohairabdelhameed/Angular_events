@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { EventService, ISession } from '../events/index';
 
+
 @Component({
   selector: 'app-search-results',
   templateUrl: './SearchResults.component.html',
@@ -9,7 +10,7 @@ import { EventService, ISession } from '../events/index';
 export class SearchResultsComponent implements OnInit {
   foundSession: ISession[];
   
-  selectedSession: ISession; // Add this property
+  selectedSession: ISession; 
 
   constructor(
     private route: ActivatedRoute,
@@ -29,10 +30,11 @@ export class SearchResultsComponent implements OnInit {
     });
   }
 
-  navigateToSession(sessionId: number) {
-    // Navigate to the event detail page with the session ID as a route parameter
-    this.router.navigate(['event', sessionId]);
+  navigateToSession(eventId: number, sessionId: number) {
+    // Navigate to the session details page with the event and session IDs as route parameters
+    this.router.navigate(['events', eventId, sessionId]);
   }
+  
   
   
   

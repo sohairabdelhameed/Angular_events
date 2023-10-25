@@ -47,10 +47,10 @@
       </div>
     </div>
     <div class="col-md-2">
-      <a (click)="addsession()" class="nav-link float-sm-right" style="color: #df600c;">Add Session</a>
+      <a (click)="addSession()" class="nav-link float-sm-right" style="color: #df600c;">Add Session</a>
     </div>
   </div>
   
-  <session-list [sortBy]="sortBy" [filterBy]="filterBy" *ngIf="!addMode" [sessions]="event?.sessions"></session-list>
+  <session-list [eventId]="event?.id" [sortBy]="sortBy" [filterBy]="filterBy" *ngIf="!addMode" [sessions]="event?.sessions"></session-list>
   <create-session *ngIf="addMode" (saveNewSession)="saveNewSession($event)" (cancelAddSession)="cancelAddSession()"></create-session>
 </div>

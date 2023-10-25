@@ -23,9 +23,12 @@ import { EventService } from './shared/index'
         }
        
         saveEvent(formValues){
-            this.eventService.saveEvent(formValues)
-            this.isBad = false
-            this.router.navigate(['/events'])
+            this.eventService.saveEvent(formValues).subscribe(() =>{
+                this.isBad = false
+                this.router.navigate(['/events'])
+
+            });
+            
         }
         cancel(){
            this.router.navigate(['/events'])
