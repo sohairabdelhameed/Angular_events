@@ -3,7 +3,7 @@ import { Component, Input } from "@angular/core";
     selector:'collapsible-well',
     template:`
     <div (click)="toggleContent()" class=" well pointable">
-    <h4 style="color:#F97924">
+    <h4 style="color:#d8d8d8">
    <ng-content select=".title" ></ng-content>
    
 </h4>

@@ -1,4 +1,5 @@
 import { Component, Input , OnChanges, SimpleChanges,ElementRef, ViewChild , AfterViewInit} from "@angular/core";
+import {ActivatedRoute} from '@angular/router'
 import { ISession } from "../shared/index";
 import { AuthService} from '../../user/auth.service'
 import { VoterService } from "./voters.service";
@@ -15,13 +16,13 @@ export class SessionListComponent implements OnChanges, AfterViewInit {
 @Input() eventId:number;
 VisibleSessions: ISession[] = [];
 
-constructor(private auth:AuthService , private voterService: VoterService  ){
+constructor(private auth:AuthService , private voterService: VoterService ,private route: ActivatedRoute ){
 
 }
 
 @ViewChild('selectedSession') selectedSessionElement: ElementRef; // Add this property
 
-
+@ViewChild('sessionDiv') sessionDiv: ElementRef;
 
 ngOnChanges() {
     if(this.sessions){
@@ -56,13 +57,17 @@ filterSessions(filter){
 
     }
 }
-scrollToSelectedSession() {
-    if (this.selectedSessionElement && this.selectedSessionElement.nativeElement) {
-      this.selectedSessionElement.nativeElement.scrollIntoView({ behavior: "smooth" });
-    }
-  }
-  ngAfterViewInit() {
-    this.scrollToSelectedSession();
+ngAfterViewInit() {
+    this.route.params.subscribe(params => {
+      const sessionId = +params['sessionId']; // Convert to a number
+
+      // Check if a valid sessionId was provided
+      if (!isNaN(sessionId)) {
+        // Use JavaScript to scroll to the div element
+        const element = this.sessionDiv.nativeElement;
+        element.scrollIntoView({ behavior: 'smooth' });
+      }
+    });
   }
 
 }

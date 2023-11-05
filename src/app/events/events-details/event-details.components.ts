@@ -2,6 +2,7 @@ import { Component, OnInit } from "@angular/core";
 import { EventService } from "../shared/events.service";
 import { ActivatedRoute, Params } from '@angular/router';
 import { IEvent, ISession } from "../shared/index";
+import { AuthService} from '../../user/auth.service'
 
 @Component({
   templateUrl: './event-details.components.html',
@@ -10,6 +11,12 @@ import { IEvent, ISession } from "../shared/index";
     .event-image {height: 100px;}
     a {cursor: pointer;}
     .btn.button-transparent {color: #f58a43;}
+    .bgc{
+      background-color:#535353;"
+    }
+    .cl{
+      color:#e5e5e5;
+    }
   `]
 })
 export class EventDetailsComponent implements OnInit {
@@ -17,8 +24,9 @@ export class EventDetailsComponent implements OnInit {
   addMode: boolean;
   filterBy: string = 'all';
   sortBy: string = 'votes';
+ 
 
-  constructor(private eventService: EventService, private route: ActivatedRoute) {}
+  constructor(public auth:AuthService, private eventService: EventService, private route: ActivatedRoute) {}
 
   ngOnInit() {
     this.route.data.forEach((data) => {
@@ -30,8 +38,12 @@ export class EventDetailsComponent implements OnInit {
 }
 
   addSession() {
-    this.addMode = true;
+    if (this.auth.isAuthenticated()) {
+      this.addMode = true;
+    } else {
+   this.addMode=false;
   }
+}
 
   saveNewSession(session: ISession) {
     const nextId = Math.max(...this.event.sessions.map(s => s.id));

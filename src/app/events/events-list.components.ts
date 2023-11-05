@@ -6,7 +6,8 @@ import { IEvent } from "./shared/index";
    
     template:`
     <div>
-          <h1> Upcomming Angular Events </h1>
+    
+          <h2 class="container "> Upcomming Angular Events </h2>
         <hr>
    <div class="row">
    <div *ngFor="let event of events" class="col-md-5">
@@ -18,6 +19,7 @@ import { IEvent } from "./shared/index";
     
     </div>
     `,
+   
    
 })
 export class EventListComponent implements OnInit {

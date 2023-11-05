@@ -3,7 +3,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import {RouterModule} from '@angular/router'
 import {FormsModule ,ReactiveFormsModule} from '@angular/forms'
 import{ HttpClientModule} from '@angular/common/http'
-import * as $ from 'jquery'
+
+
 import{
   EventListComponent,
   EventThumbnailComponent,
@@ -17,7 +18,10 @@ import{
   DurationPipe,
   UpVoteComponent,
   VoterService,
-  LocationValidator
+  LocationValidator,
+  ContactUsComponent,
+  AboutUsComponent,
+  HomePageComponent
 } from './events/index'
 
 import { EventsAppComponent } from './events-app.component';
@@ -35,11 +39,13 @@ import { AuthService } from './user/auth.service';
     FormsModule,
     ReactiveFormsModule,
     RouterModule.forRoot(appRoutes),
-    HttpClientModule
+    HttpClientModule,
+   
  
 
   ],
   declarations: [
+    HomePageComponent,
     EventsAppComponent,
     EventListComponent,
     EventThumbnailComponent,
@@ -56,6 +62,9 @@ import { AuthService } from './user/auth.service';
     SearchResultsComponent,
     UpVoteComponent,
     LocationValidator,
+    ContactUsComponent,
+    AboutUsComponent,
+    
 
   
   ],

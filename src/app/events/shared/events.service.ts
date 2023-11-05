@@ -4,11 +4,13 @@ import { IEvent, ISession } from "./event.model";
 import {HttpClient , HttpHeaders} from '@angular/common/http'
 import { catchError, map } from 'rxjs/operators';
 
+
 @Injectable()
 export class EventService{
-  constructor(private http:HttpClient){
+  constructor(private http:HttpClient ){
     
   }
+  events : IEvent[] = EVENTS
   getEvents():Observable<IEvent[]> {
     return this.http.get<IEvent[]>('/api/events')
     .pipe(catchError(this.handleError<IEvent[]>('getEvents',[])))
@@ -26,6 +28,8 @@ export class EventService{
     return this.http.post<IEvent>('/api/events', event, options)
       .pipe(catchError(this.handleError<IEvent>('saveEvent')))
   }
+
+  
   
 
    
@@ -66,14 +70,14 @@ const EVENTS :IEvent[] =
             {
               id: 1,
               name: "Using Angular 4 Pipes",
-              presenter: "Peter Bacon Darwin",
+              presenter: "Sohair Abdelhameed",
               duration: 1,
               level: "Intermediate",
               abstract: `Learn all about the new pipes in Angular 4, both 
               how to write them, and how to get the new AI CLI to write 
               them for you. Given by the famous PBD, president of Angular 
               University (formerly Oxford University)`,
-              voters: ['bradgreen', 'igorminar', 'martinfowler']
+              voters: ['bradgreen', 'igorminar', 'martinfowler','sohairAbdwlhameed']
             },
             {
               id: 2,

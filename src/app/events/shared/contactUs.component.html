@@ -1,0 +1,32 @@
+<form (ngSubmit)="onSubmit()" [formGroup]="contactForm" #contactFormRef="ngForm">
+    <div class="form-group">
+      <label for="name">Name</label>
+      <input type="text" id="name" class="form-control" placeholder="Your Name" formControlName="name">
+      <div *ngIf="contactForm.get('name').hasError('required') && contactForm.get('name').touched" class="text-danger">
+        Name is required.
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="email">Email</label>
+      <input type="email" id="email" class="form-control" placeholder="Your Email" formControlName="email">
+      <div *ngIf="contactForm.get('email').hasError('required') && contactForm.get('email').touched" class="text-danger">
+        Email is required.
+      </div>
+      <div *ngIf="contactForm.get('email').hasError('email') && contactForm.get('email').touched" class="text-danger">
+        Invalid email format.
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="message">Message</label>
+      <textarea id="message" class="form-control" rows="4" placeholder="Your Message" formControlName="message"></textarea>
+      <div *ngIf="contactForm.get('message').hasError('required') && contactForm.get('message').touched" class="text-danger">
+        Message is required.
+      </div>
+    </div>
+    <button type="submit"  [disabled]="contactForm.invalid" class="btn btn-primary">Submit</button>
+<hr>
+    <div  *ngIf="submitSuccess" class="alert alert-success text-bg-success text-center">
+        Thank You! We will contact you as soon as Possible
+      </div>  
+</form>
+  

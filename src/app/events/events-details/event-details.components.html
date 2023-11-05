@@ -5,17 +5,17 @@
   
   <div class="row">
     <div class="col-md-11">
-      <h2 class="text-uppercase">{{event?.name}}</h2>
+      <h2 class="text-uppercase cl">{{event?.name}}</h2>
     </div>
   </div>
   
   <div class="row">
-    <div class="col-md-6">
+    <div class="col-md-6 cl">
       <div><strong>Date:</strong> {{event?.date | date:'shortDate'}}</div>
       <div><strong>Time:</strong> {{event?.time }}</div>
       <div><strong>Price:</strong> {{event?.price | currency:'USD' }}</div>
     </div>
-    <div class="col-md-6">
+    <div class="col-md-6 cl">
       <address>
         <strong>Address:</strong><br>
         {{event?.location?.address}}<br>
@@ -33,21 +33,22 @@
     <div class="col-md-7">
       <div class="btn-group btn-group-sm" role="group">
         <span class="d-flex align-items-center">
-          <i class="fas fa-sort mr-1" style="color: #e0dad7;"></i> Sort by:
+          <i class="fas fa-sort mr-1" style="color: rgb(210, 30, 30);"></i> Sort by:
         </span>
-        <button class="btn btn-secondary m-1" [class.active]="sortBy === 'name'" (click)="sortBy='name'">Name</button>
-        <button class="btn btn-secondary m-1" [class.active]="sortBy === 'votes'" (click)="sortBy='votes'">Votes</button>
+        <button class="btn btn-secondary m-1 bgc" [class.active]="sortBy === 'name'" (click)="sortBy='name'">Name</button>
+        <button class="btn btn-secondary m-1 bgc" [class.active]="sortBy === 'votes'" (click)="sortBy='votes'">Votes</button>
         <span class="d-flex align-items-center">
-          <i class="fas fa-filter mx-1" style="color: #e0dad7;"></i> Filter by:
+          <i class="fas fa-filter mx-1" style="color: rgb(210, 30, 30);"></i> Filter by:
         </span>
-        <button class="btn btn-secondary m-1" [class.active]="filterBy === 'all'" (click)="filterBy='all'">All</button>
-        <button class="btn btn-secondary m-1" [class.active]="filterBy === 'beginner'" (click)="filterBy='beginner'">Beginner</button>
-        <button class="btn btn-secondary m-1" [class.active]="filterBy === 'intermediate'" (click)="filterBy='intermediate'">Intermediate</button>
-        <button class="btn btn-secondary m-1" [class.active]="filterBy === 'advanced'" (click)="filterBy='advanced'">Advanced</button>
+        <button class="btn btn-secondary m-1 bgc"  [class.active]="filterBy === 'all'" (click)="filterBy='all'">All</button>
+        <button class="btn btn-secondary m-1 bgc"  [class.active]="filterBy === 'beginner'" (click)="filterBy='beginner'">Beginner</button>
+        <button class="btn btn-secondary m-1 bgc" [class.active]="filterBy === 'intermediate'" (click)="filterBy='intermediate'">Intermediate</button>
+        <button class="btn btn-secondary m-1 bgc" [class.active]="filterBy === 'advanced'" (click)="filterBy='advanced'">Advanced</button>
       </div>
     </div>
-    <div class="col-md-2">
-      <a (click)="addSession()" class="nav-link float-sm-right" style="color: #df600c;">Add Session</a>
+    <div  class="col-md-2" *ngIf="auth.isAuthenticated()">
+      <a  (click)="addSession()" class="nav-link float-sm-right" style="color: rgba(255, 0, 0, 0.774);">Add Session</a>
+
     </div>
   </div>
   

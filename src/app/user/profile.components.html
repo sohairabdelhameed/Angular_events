@@ -15,11 +15,11 @@
             <input formControlName="lastName" id="lastName" type="text" class="form-control" placeholder="Last Name..." />
         </div>
   
-        <button type="submit" class="btn btn-primary" (click)="saveProfile(profileForm.value)">Save</button>
+        <button type="submit" class="btn btn-dark btn-outline-success" (click)="saveProfile(profileForm.value)">Save</button>
         <span style="margin: 0 5px;"></span>
-        <button type="submit" class="btn btn-warning" style="float: right;"  (click)="logout()">LogOut</button>
+        <button type="submit" class="btn btn-dark btn-outline-danger" style="float: right;"  (click)="logout()">LogOut</button>
         <span style="margin: 0 5px;"></span>
-        <button type="button" class="btn btn-secondary" (click)="cancel()">Cancel</button>
+        <button type="button" class="btn btn-outline-secondary" (click)="cancel()">Cancel</button>
       </form>
     </div>
   </div>

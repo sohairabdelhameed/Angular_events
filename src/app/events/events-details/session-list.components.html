@@ -1,6 +1,6 @@
 <!-- Add this line to include Font Awesome CSS from a CDN -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-<div class="row" *ngFor="let session of VisibleSessions" [id]="'session_' + session.id">
+<div class="row" *ngFor="let session of VisibleSessions" [id]="'session_' + session.id " #sessionDiv>
    <div class="col-md-1">
     <div *ngIf="auth.isAuthenticated()">
       <upvote (vote)="toggleVote(session)" [count] ="session.voters.length" [voted]="userHasVoted(session)">
@@ -16,19 +16,20 @@
         {{session.name}}
         <i *ngIf="session.voters.length > 0" class="fas fa-fire" style="color:#e50000;"></i>
 
+
        </div>
        <div class="body">
-       <div class="card mb-3" style="background-color: #ede9e28a;">
-            <div class="card-header" style="background-color: #485563;">
+       <div class="card mb-3" style="background-color: #b7b7b6;">
+            <div class="card-header" style="background-color:#7e7d7c;">
               
-                <h6 class="card-subtitle font-weight-bolder font-italic" style="color:#020505" >{{ session.presenter }}</h6>
+                <h5 class="card-subtitle font-weight-bolder " style="color:black" > {{ session.presenter }}</h5>
             </div>
             <div class="card-div">
               <p class="card-text">
-                <span class="font-monospace font-weight-bold" style="color:rgb(96, 31, 31)">Duration: {{ session.duration | duration}}</span><br />
-                <span class="font-monospace font-weight-bold" style="color:rgb(96, 31, 31)">Level: {{ session.level }}</span>
+                <span class="font-monospace font-weight-bold" style="color:rgb(2, 2, 2)">Duration: {{ session.duration | duration}}</span><br />
+                <span class="font-monospace font-weight-bold" style="color:rgb(2, 2, 2)">Level: {{ session.level }}</span>
               </p>
-              <p class="card-text  font-monospace font-weight-bolder" style="color:#513827">{{ session.abstract }}</p>
+              <p class="card-text  font-monospace font-weight-bolder" style="color:#222222">{{ session.abstract }}</p>
             </div>
           </div>
        </div>

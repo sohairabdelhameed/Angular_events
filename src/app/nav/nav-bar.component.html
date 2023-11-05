@@ -5,16 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ngEvents</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    
+
 </head>
 <body>
 
-<div class="navbar navbar-expand-lg navbar-dark " style="background-color:#485563;color: white;">
+  <div class="navbar navbar-expand-lg navbar-dark font-weight-bolder font " style="background-color:#535353;color: white;">
   <div class="container">
-    <a class="navbar-brand">ngEvents</a>
+    <a [routerLink] ="['HomePage']" routerLinkActive="active" class="navbar-brand ">ngEvents</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -24,20 +21,18 @@
         <li class="nav-item">
           <a [routerLink] ="['/events']" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}" class="nav-link">All Events</a>
         </li>
-        <li class="nav-item">
+        <li class="nav-item" *ngIf="auth.isAuthenticated()">
           <a [routerLink] ="['/events/new']" routerLinkActive="active"  class="nav-link" >Create Event</a>
         </li>
-        <li class="nav-item" ngbDropdown>
-          <div class="dropdown" ngbDropdown>
-            <a class="nav-link" id="navbarDropdown" role="button" ngbDropdownToggle>
-              Events
-            </a>
-            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <a *ngFor="let event of events" class="dropdown-item" [routerLink]="['/events', event.id]">
-                {{ event.name }}
-              </a>
-            </div>
-          </div>
+        <li class="nav-item">
+          <a [routerLink] ="['about-us']" routerLinkActive="active"  class="nav-link">
+            About Us
+          </a>
+        </li>
+        <li class="nav-item">
+          <a [routerLink] ="['contact-us']" routerLinkActive="active"  class="nav-link" >
+            Contact Us
+          </a>
         </li>
       </ul>
 
@@ -49,10 +44,10 @@
         </li>
       </ul>
     <span style="margin: 0 20px;"></span>
-    <form id="searchForm" (ngSubmit)="searchSession(searchTerm)" class="form-inline my-2 my-lg-0">
-      <input [(ngModel)]="searchTerm" name="searchTerm" class="form-control" type="text" placeholder="Search Sessions">
-      <button class="btn btn-default my-2 my-sm-0" type="submit">Search</button>
-    </form>
+      <form id = "searchForm" (ngSubmit)="searchSession(searchTerm)" class="form-inline my-2 my-lg-0">
+        <input [(ngModel)]="searchTerm" name="searchTerm" class="form-control" type="text" placeholder="Search Sessions">
+        <button class="btn btn-default my-2 my-sm-0">Search</button>
+      </form>
   
     </div>
     </div>
@@ -62,5 +57,7 @@
 <a class="list-group-item" *ngFor="let session of foundSession" [routerLink]="['/events',session.eventId]">{{session.name}}</a>
   </div>
 </simple-modal>
+
+
 </body>
 </html>

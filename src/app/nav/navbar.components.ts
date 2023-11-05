@@ -3,8 +3,8 @@ import { AuthService } from '../user/auth.service'
 import { IEvent, ISession } from '../events/shared/event.model';
 import { EventService } from '../events';
 import { Router } from '@angular/router';
-
-
+import * as $ from 'jquery'
+//import { NgbDropdown } from '@ng-bootstrap/ng-bootstrap';
 
 
 
@@ -16,7 +16,10 @@ import { Router } from '@angular/router';
         .nav.navbar-nav{font-size:15px;}
         #searchForm{margin-right:100px;}
         @media (max-width:1200px) {#searchForm{display:none}}
-        .navbar-nav > .nav-item > a.active { color: #F97924; }
+        .navbar-nav > .nav-item > a.active { color:#d35e59; }
+        
+    
+
         `
     ]
 })

@@ -1,7 +1,7 @@
 @import '~bootstrap/dist/css/bootstrap.min.css';
 
 body{
-  background-color: #303c54; /* Set your desired background color */
+  background-color: #2c2c2c; /* Set your desired background color */
   color: white; /* Set your desired font color */
 }
 .hoverwell:hover {
